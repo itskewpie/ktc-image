@@ -22,5 +22,5 @@ include_recipe "openstack-common"
 include_recipe "openstack-common::logging"
 include_recipe "openstack-image::api"
 include_recipe "openstack-image::registry"
-include_recipe "openstack-image::keystone-registration"
+include_recipe "openstack-image::identity_registration"
 
