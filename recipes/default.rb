@@ -11,6 +11,12 @@ class Chef::Recipe
   include KTCUtils
 end
 
+d1 = get_openstack_service_template(get_interface_address("management"), "9292")
+register_service("image-api", d1)
+
+d2 = get_openstack_service_template(get_interface_address("management"), "9191")
+register_service("image-registry", d2)
+
 set_rabbit_servers "image-api"
 set_database_servers "image"
 set_service_endpoint_ip "image-api"
