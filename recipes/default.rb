@@ -14,21 +14,21 @@ iface = KTC::Network.if_lookup "management"
 ip = KTC::Network.address "management"
 
 Services::Connection.new run_context: run_context
-identity_api = Services::Member.new node.default.fqdn,
+image_api = Services::Member.new node.default.fqdn,
   service: "image-api",
   port: 9292,
   proto: "tcp",
   ip: ip
 
-identity_api.save
+image_api.save
 
-identity_admin = Services::Member.new node.default.fqdn,
+image_registry = Services::Member.new node.default.fqdn,
   service: "image-registry",
   port: 9191,
   proto: "tcp",
   ip: ip
 
-identity_admin.save
+image_registry.save
 
 KTC::Attributes.set
 
