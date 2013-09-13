@@ -7,24 +7,30 @@
 # All rights reserved - Do Not Redistribute
 #
 
-class Chef::Recipe
-  include KTCUtils
-end
+include_recipe "services"
+include_recipe "ktc-utils"
 
-iface = get_interface_address("management")
-d1 = get_openstack_service_template(iface, "9292")
-register_member("image-api", d1)
+iface = KTC::Network.if_lookup "management"
+ip = KTC::Network.address "management"
 
-d2 = get_openstack_service_template(iface, "9191")
-register_member("image-registry", d2)
+Services::Connection.new run_context: run_context
+identity_api = Services::Member.new node.default.fqdn,
+  service: "image-api",
+  port: 9292,
+  proto: "tcp",
+  ip: ip
 
-# dependant services
-set_rabbit_servers "image-api"
-set_database_servers "image"
-set_service_endpoint "identity-api"
-set_service_endpoint "identity-admin"
-set_service_endpoint "image-registry"
-set_service_endpoint "image-api"
+identity_api.save
+
+identity_admin = Services::Member.new node.default.fqdn,
+  service: "image-registry",
+  port: 9191,
+  proto: "tcp",
+  ip: ip
+
+identity_admin.save
+
+KTC::Attributes.set
 
 node.default["openstack"]["image"]["api"]["bind_interface"] = iface
 node.default["openstack"]["image"]["registry"]["bind_interface"] = iface
