@@ -21,7 +21,6 @@ image_api = Services::Member.new node.default.fqdn,
   ip: ip
 
 image_api.save
-KTC::Network.add_service_nat "image-api", 9292
 
 image_registry = Services::Member.new node.default.fqdn,
   service: "image-registry",
@@ -30,7 +29,6 @@ image_registry = Services::Member.new node.default.fqdn,
   ip: ip
 
 image_registry.save
-KTC::Network.add_service_nat "image-registry", 9191
 
 KTC::Attributes.set
 
