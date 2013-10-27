@@ -14,7 +14,7 @@ iface = KTC::Network.if_lookup "management"
 ip = KTC::Network.address "management"
 
 Services::Connection.new run_context: run_context
-image_api = Services::Member.new node.fqdn,
+image_api = Services::Member.new node[:fqdn],
   service: "image-api",
   port: 9292,
   proto: "tcp",
@@ -22,7 +22,7 @@ image_api = Services::Member.new node.fqdn,
 
 image_api.save
 
-image_registry = Services::Member.new node.fqdn,
+image_registry = Services::Member.new node[:fqdn],
   service: "image-registry",
   port: 9191,
   proto: "tcp",
