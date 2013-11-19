@@ -10,6 +10,7 @@ version '0.3.6'
   supports os
 end
 
+depends "ktc-monitor"
 depends "ktc-utils"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-image", "~> 7.0.0"

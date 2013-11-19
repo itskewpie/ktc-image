@@ -14,6 +14,5 @@ group "integration" do
   cookbook "ktc-identity"
   cookbook "ktc-memcached"
   cookbook "ktc-messaging"
-  cookbook "ktc-monitor"
   cookbook "ktc-testing"
 end
