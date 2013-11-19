@@ -16,13 +16,12 @@ suites:
 - name: default
   run_list:
     - recipe[ktc-testing]
-    - recipe[ktc-etcd]
+    - recipe[etcd::compile_time]
     - recipe[ktc-database]
     - recipe[ktc-memcached]
     - recipe[ktc-messaging]
     - recipe[ktc-identity]
-    - recipe[sensu::default]
-    - recipe[collectd::client]
+    - recipe[ktc-monitor::client]
     - recipe[ktc-image]
   attributes:
     etcd:
@@ -35,7 +34,3 @@ suites:
       root_network_acl: '%'
     openstack:
       developer_mode: true
-
-clusters:
-  default:
-    - default

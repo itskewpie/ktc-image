@@ -10,10 +10,7 @@ version '0.3.4'
   supports os
 end
 
-depends "ktc-utils", "> 0.3.2"
+depends "ktc-utils"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-image", "~> 7.0.0"
-depends "services", "> 1.1.0"
-depends "sensu"
-depends "ktc-collectd"
-
+depends "services"
