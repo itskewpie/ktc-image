@@ -12,16 +12,6 @@ user node["openstack"]["image"]["user"] do
   supports :manage_home => true
 end
 
-#remote_directory "/etc/glance" do
-#  source "etc/glance"
-#  files_owner node["openstack"]["image"]["user"]
-#  files_group node["openstack"]["image"]["group"]
-#  files_mode 00644
-#  owner node["openstack"]["image"]["user"]
-#  group node["openstack"]["image"]["group"]
-#  mode 00755
-#end
-
 directory "/var/log/glance" do
   owner node["openstack"]["image"]["user"]
   group node["openstack"]["image"]["group"]
