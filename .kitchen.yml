@@ -1,7 +1,7 @@
 ---
 provisioner:
   name: chef_zero
-  re`quire_chef_omnibus: latest
+  require_chef_omnibus: latest
 
 driver:
   name: vagrant
