@@ -50,3 +50,7 @@ end
     to "/opt/openstack/glance/bin/#{p}"
   end
 end
+
+link "/usr/bin/glance" do
+  to "/opt/openstack/glanceclient/bin/glance"
+end
