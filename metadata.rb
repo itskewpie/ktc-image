@@ -11,6 +11,7 @@ version '0.3.12'
 end
 
 depends "ktc-monitor"
+depends "ktc-logging"
 depends "ktc-utils"
 depends "openstack-common", "~> 0.4.3"
 depends "openstack-image", "~> 7.0.0"
