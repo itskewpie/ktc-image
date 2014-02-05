@@ -1,3 +1,7 @@
+include_attribute "openstack-image::default"
+
+default["openstack"]["image"]["syslog"]["use"] = true
+
 case platform
 when "ubuntu"
   default["openstack"]["image"]["platform"]["postgresql_python_packages"] = []

@@ -36,7 +36,7 @@ node.default["openstack"]["image"]["api"]["bind_interface"] = iface
 node.default["openstack"]["image"]["registry"]["bind_interface"] = iface
 
 include_recipe "openstack-common"
-include_recipe "openstack-common::logging"
+include_recipe "ktc-logging::logging"
 include_recipe "ktc-image::package_setup"
 include_recipe "openstack-image::registry"
 include_recipe "openstack-image::api"
