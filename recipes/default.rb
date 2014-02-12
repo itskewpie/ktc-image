@@ -47,7 +47,7 @@ processes = node['openstack']['image']['api_processes']
 
 processes.each do |process|
   sensu_check "check_process_#{process['name']}" do
-    command "check-procs.rb -c 10 -w 10 -C 1 -W 1 -p #{process['name']}"
+    command "check-procs.rb -c 50 -w 50 -C 1 -W 1 -p #{process['name']}"
     handlers ["default"]
     standalone true
     interval 30
